@@ -5,7 +5,8 @@ const chackIsNavigationSupported = () => {
 const fetchPage = async (url) => {
   const response = await fetch(url);
   const text = await response.text();
-  const [_, data] = text.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+  //     const [_, data] = text.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+  const [_, data] = text.match(/<body>([\s\S]*)<\/body>/i);
 
   return data;
 };
@@ -24,7 +25,6 @@ export const statViewTransition = () => {
 
         document.startViewTransition(() => {
           document.body.innerHTML = data;
-          console.log("🚀 ~ document.startViewTransition ~ data:", data)
           document.documentElement.scrollTop = 0;
         });
       },
