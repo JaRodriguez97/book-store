@@ -24,6 +24,7 @@ export const statViewTransition = () => {
 
         document.startViewTransition(() => {
           document.body.innerHTML = data;
+          console.log("🚀 ~ document.startViewTransition ~ data:", data)
           document.documentElement.scrollTop = 0;
         });
       },
