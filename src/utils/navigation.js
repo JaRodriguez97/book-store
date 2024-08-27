@@ -5,8 +5,9 @@ const chackIsNavigationSupported = () => {
 const fetchPage = async (url) => {
   const response = await fetch(url);
   const text = await response.text();
-  //     const [_, data] = text.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-  const [_, data] = text.match(/<body>([\s\S]*)<\/body>/i);
+  console.log("🚀 ~ fetchPage ~ text:", text)
+  //     const [_, data] = text.match(/<head><body[^>]*>([\s\S]*)<\/body>/i);
+  const [_, data] = text.match(/<\/head> <body[^>]*>([\s\S]*)<\/body>/i);
 
   return data;
 };
